@@ -4,6 +4,6 @@ from .views import FilmViewSet
 
 
 router = SimpleRouter()
-router.register(r"films", FilmViewSet)
+router.register(r"films", FilmViewSet, basename="film")
 
 urlpatterns = router.urls
