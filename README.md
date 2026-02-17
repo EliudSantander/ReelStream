@@ -5,6 +5,7 @@ database. The goal of this project is to simulate a real-world movie rental serv
 focusing on API design, SOLID principles and database integration.
 
 ## Features
+
 - RESTful film catalog endpoint
 - JWT authentication
 - Basic filtering support and pagination
@@ -13,6 +14,7 @@ focusing on API design, SOLID principles and database integration.
 - Swagger/ReDoc API documentation
 
 ## Tech Stack
+
 - Python
 - Django
 - Django REST Framework
@@ -21,30 +23,37 @@ focusing on API design, SOLID principles and database integration.
 - Postman (API testing)
 
 ## Setup Instructions
+
 ### 1. Clone Repository
+
 ```bash
 git clone
 cd ReelStream
 ```
 
 ### 2.Backend setup
+
 ```bash
 cd backend
 ```
 
 Create virtual environment:
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 ```
 
 Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### 3.Database setup
+
 Inside the db folder:
+
 ```bash
 docker compose up -d
 ```
@@ -52,31 +61,58 @@ docker compose up -d
 This initializes PostgreSQL with the Pagila dataset.
 
 ### 4.Configure environment
+
 Create `.env` based on `.env.example` and configure credentials.
 
 ### 5.Run migrations
+
 ```bash
 python manage.py migrate
 ```
 
 ### 6.Start server
+
 ```bash
 python manage.py runserver
 ```
 
 ## Authentication
-JWT authentication is enabled.
 
-Obtain a token:
+This API uses **JWT (JSON Web Tokens)** for secure access.
+
+### 1. Create a Superuser
 
 ```bash
-POST /api/token/
+python manage.py createsuperuser
 ```
 
-Use token:
-*Authorization: Bearer*
+### 2. Obtain Tokens
+
+Send a `POST` request to `/api/token/` with your credentials:
+
+**Payload:**
+
+```json
+{
+  "username": "your_username",
+  "password": "your_password"
+}
+```
+
+```http
+Authorization: Bearer <your_access_token>
+```
+
+## API Documentation
+
+Swagger UI:
+/api/schema/swagger-ui/
+
+ReDoc:
+/api/schema/redoc/
 
 ## Future Improvements
+
 - Advanced filtering and pagination
 - USer workflows
 - CRUD expansion
