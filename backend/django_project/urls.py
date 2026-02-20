@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 
 from drf_spectacular.views import (
     SpectacularAPIView,
@@ -11,8 +11,17 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+from django.http import JsonResponse
 
-urlpatterns = []
+
+def custom_404_view(request, exception=None):
+    return JsonResponse(
+        {"error": "This resource does not exists", "status_code": 404}, status=404
+    )
+
+
+handler404 = custom_404_view
+
 
 urlpatterns = [
     # YOUR PATTERNS
@@ -35,4 +44,5 @@ urlpatterns = [
         SpectacularRedocView.as_view(url_name="schema"),
         name="redoc",
     ),
+    re_path(r"^.*$", handler404),
 ]
