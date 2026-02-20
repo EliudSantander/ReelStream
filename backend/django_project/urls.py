@@ -18,11 +18,13 @@ urlpatterns = [
     # YOUR PATTERNS
     path("admin/", admin.site.urls),
     path("api/v1/", include("catalog.urls")),
+    path("api/v1/", include("watchlist.urls")),
+    path("api/v1/", include("accounts.urls")),
     path("api-auth/", include("rest_framework.urls")),
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
-    # Optional UI:
+    # UI:
     path(
         "api/schema/swagger-ui/",
         SpectacularSwaggerView.as_view(url_name="schema"),
