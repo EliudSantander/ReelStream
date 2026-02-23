@@ -10,14 +10,14 @@ def api_client():
 
 
 @pytest.fixture
-def create_user(db):
+def testuser(db):
     return User.objects.create_user(username="testuser", password="password123")
 
 
 @pytest.mark.django_db
-def test_get_own_profile(api_client, create_user):
+def test_get_own_profile(api_client, testuser):
     # Authentication
-    api_client.force_authenticate(user=create_user)
+    api_client.force_authenticate(user=testuser)
 
     response = api_client.get("/api/v1/users/me/")
 
