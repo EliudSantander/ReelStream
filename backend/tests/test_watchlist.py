@@ -1,24 +1,13 @@
 import pytest
 from django.contrib.auth.models import User
 from rest_framework import status
-from rest_framework.test import APIClient
 
-from .models import Watchlist
-
-
-@pytest.fixture
-def api_client():
-    return APIClient()
-
-
-@pytest.fixture
-def test_user(db):
-    return User.objects.create_user(username="test_user", password="password123")
+from watchlist.models import Watchlist
 
 
 @pytest.fixture
 def test_user_2(db):
-    return User.objects.create_user(username="test_user_2", password="password123")
+    return User.objects.create_user(username="testuser2", password="password123")
 
 
 @pytest.mark.django_db

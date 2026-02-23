@@ -1,23 +1,11 @@
 import pytest
-from django.contrib.auth.models import User
-from rest_framework.test import APIClient
 from rest_framework import status
 
 
-@pytest.fixture
-def api_client():
-    return APIClient()
-
-
-@pytest.fixture
-def testuser(db):
-    return User.objects.create_user(username="testuser", password="password123")
-
-
 @pytest.mark.django_db
-def test_get_own_profile(api_client, testuser):
+def test_get_own_profile(api_client, test_user):
     # Authentication
-    api_client.force_authenticate(user=testuser)
+    api_client.force_authenticate(user=test_user)
 
     response = api_client.get("/api/v1/users/me/")
 
