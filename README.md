@@ -4,6 +4,13 @@ ReelStream is a Django REST Framework backend API built on top of the Pagila Pos
 database. The goal of this project is to simulate a real-world movie rental service backend,
 focusing on API design, SOLID principles and database integration.
 
+## Demo
+You can see the demo API in:
+[ReelStream](https://reelstream.onrender.com/api/schema/swagger-ui/)
+
+As it is deployed in a render free tier it will take 2 minutes in the first spin-up.
+
+
 ## Features
 
 - RESTful film catalog endpoint
