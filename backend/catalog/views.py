@@ -12,5 +12,5 @@ from .filters import FilmFilter
 class FilmViewSet(ReadOnlyModelViewSet):
     queryset = Film.objects.all()
     serializer_class = FilmSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     filter_backends = [FilmFilter]
