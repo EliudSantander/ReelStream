@@ -2,7 +2,7 @@ import pytest
 from django.contrib.auth.models import User
 from rest_framework import status
 
-from watchlist.models import Watchlist
+from interactions.models import Watchlist
 
 
 @pytest.fixture

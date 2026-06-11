@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     "drf_spectacular",
     # Apps
     "catalog",
-    "watchlist",
+    "interactions",
 ]
 
 REST_FRAMEWORK = {

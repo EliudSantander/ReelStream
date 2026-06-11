@@ -19,3 +19,22 @@ class Watchlist(models.Model):
 
     def __str__(self):
         return f"{self.user} - {self.film}"
+
+
+class Watched(models.Model):
+    film = models.ForeignKey(
+        "catalog.Film",
+        on_delete=models.CASCADE,
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="watched_films",
+    )
+    added_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ["user", "film"]
+
+    def __str__(self):
+        return f"{self.user} - {self.film}"
