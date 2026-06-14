@@ -1,5 +1,6 @@
 from django.contrib import admin
 
-from .models import Watchlist
+from .models import Watchlist, Watched
 
 admin.site.register(Watchlist)
+admin.site.register(Watched)
