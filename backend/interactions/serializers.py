@@ -75,4 +75,7 @@ class ReviewSerializer(serializers.ModelSerializer):
                     {"detail": "You cannot review a film that you haven't watched yet."}
                 )
 
+            if Review.objects.filter(user=user, film=film).exists():
+                raise ValidationError({"detail": "You have already reviewed this film"})
+
         return attrs
