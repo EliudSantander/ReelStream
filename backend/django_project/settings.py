@@ -132,7 +132,7 @@ STATIC_URL = "static/"
 
 SPECTACULAR_SETTINGS = {
     "TITLE": "ReelStream API",
-    "DESCRIPTION": "Your project description",
+    "DESCRIPTION": "ReSTful API for ReelStream platform with JWT authentication, users management, and watchlists interactions",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
     "COMPONENT_SPLIT_PATCH": True,
